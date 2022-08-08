@@ -9,7 +9,7 @@ IPFS upload GitHub Action. It allows uploading DApps or content to IPFS in a Git
 Parameter       |Required |Description
 ---             |---      |---
 `path`          |Yes      |Directory's path to upload.
-`service`       |No       |Type of target service to upload. Supported services [`ipfs`, `pinata`, `infura`]. Default `ipfs`
+`service`       |No       |Type of target service to upload. Supported services [`ipfs`, `pinata`, `infura`, `filebase`]. Default `ipfs`
 `timeout`       |No       |Request timeout. Default `60000` (1 minute)
 `verbose`       |No       |Level of verbosity [`false` - quiet, `true` - verbose]. Default `false`
 `host`          |No       |[ipfs] IPFS host. Default `ipfs.komputing.org`
@@ -17,10 +17,13 @@ Parameter       |Required |Description
 `protocol`      |No       |[ipfs] IPFS host's protocol. Default `https`
 `headers`       |No       |[ipfs] IPFS headers as json object. Default `{}`
 `key`           |No       |[ipfs] IPNS key name. IPNS key will be published when the key parameter is provided. The key will be created if it does not exist. Default `undefined`
+`pinName`       |No       |[psa] Human name for pin.
 `pinataKey`     |No       |[pinata] Api Key. Required for pinata service.
 `pinataSecret`  |No       |[pinata] Secret Api Key. Required for pinata service.
 `pinataPinName` |No       |[pinata] Human name for pin.
-
+`filebaseBucket`|No       |[filebase] Bucket to store pin in. Required for filebase service.
+`filebaseKey`   |No       |[filebase] S3 Access Key. Required for filebase service.
+`filebaseSecret`|No       |[filebase] S3 Secret Key. Required for filebase service.
 ## Outputs
 
 - `hash` - IPFS CID
@@ -61,4 +64,16 @@ with:
   service: pinata
   pinataKey: ${{ secrets.PINATA_KEY }}
   pinataSecret: ${{ secrets.PINATA_SECRET }}
+```
+
+### 4. Filebase starter
+```
+uses: aquiladev/ipfs-action@v1
+with:
+  path: ./build
+  service: filebase
+  pinName: 'ipfs-action'
+  filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
+  filebaseKey: ${{ secrets.FILEBASE_KEY }}
+  filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 ```
