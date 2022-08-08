@@ -12,9 +12,13 @@ async function run() {
     const protocol = core.getInput("protocol");
     const headers = core.getInput("headers");
     const key = core.getInput("key");
+    const pinName = core.getInput("pinName");
     const pinataKey = core.getInput("pinataKey");
     const pinataSecret = core.getInput("pinataSecret");
     const pinataPinName = core.getInput("pinataPinName");
+    const filebaseBucket = core.getInput("filebaseBucket")
+    const filebaseKey = core.getInput("filebaseKey")
+    const filebaseSecret = core.getInput("filebaseSecret")
     const timeout = core.getInput("timeout");
     const verbose = core.getInput("verbose") === "true";
 
@@ -26,9 +30,13 @@ async function run() {
       protocol,
       headers: JSON.parse(headers || "{}"),
       key,
+      pinName,
       pinataKey,
       pinataSecret,
       pinataPinName,
+      filebaseBucket,
+      filebaseKey,
+      filebaseSecret,
       timeout,
       verbose,
     };
