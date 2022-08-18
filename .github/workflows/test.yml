@@ -10,6 +10,9 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Publish Test [Pinata]
+        env:
+          MY_KEY: ${{ secrets.PINATA_KEY }}
+        if: "${{ env.PINATA_KEY != '' }}"
         uses: ./
         with:
           path: 'dist'
@@ -19,6 +22,9 @@ jobs:
           pinataSecret: ${{ secrets.PINATA_SECRET }}
 
       - name: Publish Test [Filebase]
+        env:
+          MY_KEY: ${{ secrets.FILEBASE_BUCKET }}
+        if: "${{ env.FILEBASE_BUCKET != '' }}"
         uses: ./
         with:
           path: 'dist'
@@ -28,12 +34,14 @@ jobs:
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
           filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 
-#      - name: Publish Test [Infura]
-#        if: ${{ secrets.INFURA_TEST == "true }}
-#        uses: ./
-#        with:
-#          path: 'dist'
-#          service: 'pinata'
-#          pinName: 'ipfs-action'
-#          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
-#          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
+      - name: Publish Test [Infura]
+        env:
+          MY_KEY: ${{ secrets.INFURA_PROJECT_ID }}
+        if: "${{ env.INFURA_PROJECT_ID != '' }}"
+        uses: ./
+        with:
+          path: 'dist'
+          service: 'pinata'
+          pinName: 'ipfs-action'
+          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
+          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
