@@ -19,16 +19,6 @@ jobs:
           pinataKey: ${{ secrets.PINATA_KEY }}
           pinataSecret: ${{ secrets.PINATA_SECRET }}
 
-      - name: Publish Test [Infura]
-        uses: ./
-        with:
-          path: 'dist'
-          service: 'pinata'
-          verbose: true
-          pinName: 'ipfs-action'
-          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
-          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
-
       - name: Publish Test [Filebase]
         uses: ./
         with:
@@ -39,3 +29,13 @@ jobs:
           filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
           filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
+
+#      - name: Publish Test [Infura]
+#        uses: ./
+#        with:
+#          path: 'dist'
+#          service: 'pinata'
+#          verbose: true
+#          pinName: 'ipfs-action'
+#          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
+#          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
