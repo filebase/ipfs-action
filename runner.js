@@ -19,6 +19,8 @@ async function run() {
     const filebaseBucket = core.getInput("filebaseBucket")
     const filebaseKey = core.getInput("filebaseKey")
     const filebaseSecret = core.getInput("filebaseSecret")
+    const infuraProjectId = core.getInput("infuraProjectId");
+    const infuraProjectSecret = core.getInput("infuraProjectSecret");
     const timeout = core.getInput("timeout");
     const verbose = core.getInput("verbose") === "true";
 
@@ -37,6 +39,8 @@ async function run() {
       filebaseBucket,
       filebaseKey,
       filebaseSecret,
+      infuraProjectId,
+      infuraProjectSecret,
       timeout,
       verbose,
     };

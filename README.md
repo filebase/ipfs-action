@@ -24,6 +24,8 @@ Parameter       |Required |Description
 `filebaseBucket`|No       |[filebase] Bucket to store pin in. Required for filebase service.
 `filebaseKey`   |No       |[filebase] S3 Access Key. Required for filebase service.
 `filebaseSecret`|No       |[filebase] S3 Secret Key. Required for filebase service.
+`infuraProjectId`     |No       |[infura] Project ID. Required for infura service.
+`infuraProjectSecret` |No       |[infura] Project Secret. Required for infura service.
 ## Outputs
 
 - `hash` - IPFS CID
@@ -36,29 +38,31 @@ Take a look [DApps Delivery Guide](https://dapps-delivery-guide.readthedocs.io/)
 
 ## Examples
 
-### 1. IPFS starter
+<!-- 
+### IPFS starter
 ```
-uses: aquiladev/ipfs-action@v1
+uses: aquiladev/ipfs-action@master
 with:
   path: ./
 ```
 
-### 2. IPFS with output and params
+### IPFS with output and params
 ```
-uses: aquiladev/ipfs-action@v1
+uses: aquiladev/ipfs-action@master
 id: ipfs
 with:
   path: ./build
-  host: ipfs.komputing.org
-  port: 443
+  host: ipfs.io
+  port: 5001
   protocol: https
   timeout: 180000
   verbose: true
 ```
+-->
 
-### 3. Pinata starter
+### Pinata starter
 ```
-uses: aquiladev/ipfs-action@v1
+uses: aquiladev/ipfs-action@master
 with:
   path: ./build
   service: pinata
@@ -66,7 +70,17 @@ with:
   pinataSecret: ${{ secrets.PINATA_SECRET }}
 ```
 
-### 4. Filebase starter
+### Infure starter
+```
+uses: aquiladev/ipfs-action@master
+with:
+  path: ./build
+  service: infura
+  infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
+  infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
+```
+
+### Filebase starter
 ```
 uses: aquiladev/ipfs-action@v1
 with:
