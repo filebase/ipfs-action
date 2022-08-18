@@ -14,7 +14,6 @@ jobs:
         with:
           path: 'dist'
           service: 'pinata'
-          verbose: true
           pinName: 'ipfs-action'
           pinataKey: ${{ secrets.PINATA_KEY }}
           pinataSecret: ${{ secrets.PINATA_SECRET }}
@@ -24,7 +23,6 @@ jobs:
         with:
           path: 'dist'
           service: 'filebase'
-          verbose: true
           pinName: 'ipfs-action'
           filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
           filebaseKey: ${{ secrets.FILEBASE_KEY }}
@@ -35,7 +33,6 @@ jobs:
 #        with:
 #          path: 'dist'
 #          service: 'pinata'
-#          verbose: true
 #          pinName: 'ipfs-action'
 #          infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
 #          infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
