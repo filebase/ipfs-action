@@ -11,7 +11,7 @@ jobs:
 
       - name: Publish Test [Pinata]
         env:
-          MY_KEY: ${{ secrets.PINATA_KEY }}
+          PINATA_KEY: ${{ secrets.PINATA_KEY }}
         if: "${{ env.PINATA_KEY != '' }}"
         uses: ./
         with:
@@ -23,7 +23,7 @@ jobs:
 
       - name: Publish Test [Filebase]
         env:
-          MY_KEY: ${{ secrets.FILEBASE_BUCKET }}
+          FILEBASE_BUCKET: ${{ secrets.FILEBASE_BUCKET }}
         if: "${{ env.FILEBASE_BUCKET != '' }}"
         uses: ./
         with:
@@ -36,7 +36,7 @@ jobs:
 
       - name: Publish Test [Infura]
         env:
-          MY_KEY: ${{ secrets.INFURA_PROJECT_ID }}
+          INFURA_PROJECT_ID: ${{ secrets.INFURA_PROJECT_ID }}
         if: "${{ env.INFURA_PROJECT_ID != '' }}"
         uses: ./
         with:
