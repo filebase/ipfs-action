@@ -9,6 +9,7 @@ IPFS upload GitHub Action. It allows uploading DApps or content to IPFS in a Git
 Parameter             |Required |Description
 ---                   |---      |---
 `path`                |Yes      |Directory's path to upload.
+`pinName`             |No       |Human name for pin.
 `service`             |No       |Type of target service to upload. Supported services [`ipfs`, `pinata`, `infura`]. Default `ipfs`
 `timeout`             |No       |Request timeout. Default `60000` (1 minute)
 `verbose`             |No       |Level of verbosity [`false` - quiet, `true` - verbose]. Default `false`
@@ -16,10 +17,13 @@ Parameter             |Required |Description
 `port`                |No       |[ipfs] IPFS host's port. Default `443`
 `protocol`            |No       |[ipfs] IPFS host's protocol. Default `https`
 `headers`             |No       |[ipfs] IPFS headers as json object. Default `{}`
-`key`                 |No       |[ipfs] IPNS key name. IPNS key will be published when the key parameter is provided. The key will be created if it does not exist. Default `undefined`     
+`key`                 |No       |[ipfs] IPNS key name. IPNS key will be published when the key parameter is provided. The key will be created if it does not exist. Default `undefined`
 `pinataKey`           |No       |[pinata] API Key. Required for pinata service.
 `pinataSecret`        |No       |[pinata] Secret Key. Required for pinata service.
 `pinataPinName`       |No       |[pinata] Human name for pin.
+`filebaseBucket`      |No       |[filebase] Bucket to store pin in. Required for filebase service.
+`filebaseKey`         |No       |[filebase] S3 Access Key. Required for filebase service.
+`filebaseSecret`      |No       |[filebase] S3 Secret Key. Required for filebase service.
 `infuraProjectId`     |No       |[infura] Project ID. Required for infura service.
 `infuraProjectSecret` |No       |[infura] Project Secret. Required for infura service.
 

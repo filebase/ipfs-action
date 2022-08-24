@@ -9,6 +9,12 @@
     "release": "npm i && release-it",
     "test": "jest"
   },
+  "jest": {
+    "moduleNameMapper": {
+      "ipfs-car/pack": "<rootDir>/node_modules/ipfs-car/dist/cjs/pack/index.js",
+      "ipfs-car/blockstore/fs": "<rootDir>/node_modules/ipfs-car/dist/cjs/blockstore/fs.js"
+    }
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aquiladev/ipfs-action.git"
@@ -31,6 +37,7 @@
   "dependencies": {
     "@actions/core": "1.4.0",
     "@actions/github": "5.0.0",
+    "@filebase/client": "^0.0.2",
     "@pinata/sdk": "1.1.23",
     "ipfs-http-client": "55.0.0",
     "it-last": "1.0.5",
