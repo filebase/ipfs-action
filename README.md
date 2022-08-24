@@ -26,7 +26,6 @@ Parameter             |Required |Description
 `filebaseSecret`      |No       |[filebase] S3 Secret Key. Required for filebase service.
 `infuraProjectId`     |No       |[infura] Project ID. Required for infura service.
 `infuraProjectSecret` |No       |[infura] Project Secret. Required for infura service.
-
 ## Outputs
 
 - `hash` - IPFS CID
@@ -79,4 +78,16 @@ with:
   service: infura
   infuraProjectId: ${{ secrets.INFURA_PROJECT_ID }}
   infuraProjectSecret: ${{ secrets.INFURA_PROJECT_SECRET }}
+```
+
+### Filebase starter
+```
+uses: aquiladev/ipfs-action@v1
+with:
+  path: ./build
+  service: filebase
+  pinName: 'ipfs-action'
+  filebaseBucket: ${{ secrets.FILEBASE_BUCKET }}
+  filebaseKey: ${{ secrets.FILEBASE_KEY }}
+  filebaseSecret: ${{ secrets.FILEBASE_SECRET }}
 ```
